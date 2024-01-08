@@ -105,3 +105,16 @@ body {
     margin: .6rem;
     padding: .6rem;
 }
+
+#error {
+    border-top: 1px solid #fff;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    text-align: center;
+    font-size: 16px;
+}
+
+#error h1 {
+    font-size: 22px;
+    margin-bottom: .6rem;
+}

@@ -1,6 +1,7 @@
 const apiKey = "fa705d2cc4df449f7e9253cdb11145bb";
 const apiCountryURL = "https://flagsapi.com/BR/flat/64.png";
 const iconURL = "http://openweathermap.org/img/wn/";
+const bgAPI = "https://source.unsplash.com/1600x900/?";
 
 const cityInput = document.querySelector("#city-input");
 const searchBtn = document.querySelector("#search");
@@ -14,6 +15,8 @@ const humidityElement = document.querySelector("#umidity span");
 const windElement = document.querySelector("#wind span");
 
 const weatherContainer = document.querySelector('#weather-data');
+const errorContainer = document.querySelector('#error');
+
 // Funções
 const getWeatherData = async(city) => {
 
@@ -26,12 +29,15 @@ const getWeatherData = async(city) => {
         return data;
     }
     else if(data.cod == '404' || data.cod == '400') {
+        errorContainer.classList.remove('hide');
+        weatherContainer.classList.add('hide');
         throw new Error(`Cidade não encontrada ${city}`);
     }
-
 };
 
 const showWeatherData = async(city) => {
+    errorContainer.classList.add('hide');
+
     let weatherData = await getWeatherData(city);
 
     console.log(weatherData);
@@ -43,6 +49,8 @@ const showWeatherData = async(city) => {
     countryElement.src = apiCountryURL.replace('BR', weatherData.sys.country);
     humidityElement.innerHTML = weatherData.main.humidity;
     windElement.innerHTML = weatherData.wind.speed;    
+
+    document.body.style.background = `url(${bgAPI + city})`;
   
     weatherContainer.classList.remove("hide");
 };
