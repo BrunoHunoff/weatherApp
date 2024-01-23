@@ -1,7 +1,7 @@
 const apiKey = "fa705d2cc4df449f7e9253cdb11145bb";
 const apiCountryURL = "https://flagsapi.com/BR/flat/64.png";
 const iconURL = "http://openweathermap.org/img/wn/";
-const bgAPI = "https://source.unsplash.com/1600x900/?";
+const bgAPI = "https://source.unsplash.com/1920x1080/?";
 
 const cityInput = document.querySelector("#city-input");
 const searchBtn = document.querySelector("#search");
@@ -18,8 +18,6 @@ const weatherContainer = document.querySelector('#weather-data');
 const errorContainer = document.querySelector('#error');
 
 // Funções
-
-
 
 const getWeatherData = async(city) => {
 
